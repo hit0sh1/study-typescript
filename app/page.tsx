@@ -53,7 +53,9 @@ const Home: NextPage = () => {
     );
 };
 
-const ListItem: VFC<{ todo: Todo; toggle: ChangeEventHandler<HTMLInputElement> }> = (todo, toggle) => {
+type ListItemProps = { todo: Todo; toggle: ChangeEventHandler<HTMLInputElement> };
+
+const ListItem: React.FC<ListItemProps> = ({ todo, toggle }) => {
     return (
         <label className="flex items-center gap-x-2">
             <input type="checkbox" value={todo.id} checked={todo.isDone} onChange={toggle} />
